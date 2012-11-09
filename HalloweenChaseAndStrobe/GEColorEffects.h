@@ -45,7 +45,7 @@ class GEColorEffects
       void fill_color(uint8_t begin, uint8_t count, uint8_t intensity, color_t color); 
       void fill_color_same(uint8_t begin, uint8_t count, uint8_t intensity, color_t color); //Make all LEDs the same color
       
-      void strobe();
+      void strobe(color_t);
       color_t blend(color_t a, color_t b, float weight);
       
       void set_n_color(int n, uint8_t begin, uint8_t intensity, color_t color);

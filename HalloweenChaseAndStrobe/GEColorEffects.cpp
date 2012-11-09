@@ -111,9 +111,9 @@ void GEColorEffects::fill_color(uint8_t begin, uint8_t count, uint8_t intensity,
 //Make all LEDs the same color
 void GEColorEffects::fill_color_same(uint8_t begin, uint8_t count, uint8_t intensity, color_t color)
 {
-   while(count--)  
+   while(count--)
    {  
-      set_color(0, intensity, color);
+      set_color(count, intensity, color);
    }
 }
 
@@ -136,7 +136,7 @@ void GEColorEffects::set_n_color_blended(int n, uint8_t begin, uint8_t intensity
 }
 
 // strobe effect
-void GEColorEffects::strobe()
+void GEColorEffects::strobe(color_t color)
 {
   int min_group_size = 4;
   int max_group_size = 40;
@@ -153,7 +153,7 @@ void GEColorEffects::strobe()
   for (int i = 0; i < strobe_count; i++)
   {
     // strobe on
-    fill_color(start_pos, group_size, DEFAULT_INTENSITY, 0xfff);
+    fill_color(start_pos, group_size, DEFAULT_INTENSITY, color);
     delay(tdelay);
   
     // strobe off
