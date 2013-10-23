@@ -11,9 +11,11 @@ static uint16_t c;
 GEColorEffects lights(outPin, lightCount);  //Constructor
 
 
+
 void setup() {
   randomSeed(analogRead(3));
   lights.enumerate();  //Enumerate lights on string to enable individual bulb addressing
+  lights.set_string_colors(COLOR_PURPLE, COLOR_ORANGE, COLOR_GREEN);
 
 }
 
@@ -28,25 +30,12 @@ int n_strobes;
 color_t color_array[6]={COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_RED,COLOR_PURPLE,COLOR_GREEN};
 
 void loop() {
+  lights.strobeToColor(COLOR_GREEN,COLOR_ORANGE,COLOR_PURPLE);
+  delay(random(30000,120000));
+  
 
-  if (program == 0 && now() > t + duration) // switch away from chase program after specified time
-  {
-    program = (program + 1) % max_progs;
-    t = now();
-  }
-  else if (program == 1)
-  {
-    program = (program + 1) % max_progs;
-    t = now();
-  }
-  
-  
-  switch (program) {
-    case 0:
-        lights.chase3colors(0, lightCount, 195, COLOR_PURPLE, COLOR_ORANGE, COLOR_GREEN, 15);
-        break;
-        
-    case 1:
+}          
+/*    case 1:
         lights.fill_color(0, lightCount, 0, 0);
         delay(1000);
         n_strobes = random(3, 7);
@@ -57,4 +46,4 @@ void loop() {
         delay(500);
         break;
   }
-}
+}*/
