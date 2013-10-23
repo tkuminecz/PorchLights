@@ -42,7 +42,7 @@ void loop() {
   
   switch (program) {
     case 0:
-        lights.chase3colors(0, lightCount, 195, COLOR_ORANGE, COLOR_PURPLE, COLOR_GREEN, 15);
+        lights.chase3colors(0, lightCount, 195, COLOR_PURPLE, COLOR_ORANGE, COLOR_GREEN, 15);
         break;
         
     case 1:
